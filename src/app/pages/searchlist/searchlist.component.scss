@@ -1,0 +1,31 @@
+.cardSearch{
+    p{
+        text-align: center;
+        font-weight: bold;
+    }
+}
+ion-card{
+    border-radius: 30px;
+}
+ion-select{
+    padding-right: 10px;
+}
+ion-content{
+    --background: linear-gradient(to bottom, #ed3863, white);
+}
+ion-label{
+    --font-size: 15px;
+}
+ion-toolbar{
+    // --background: #de2e54;
+    --background: linear-gradient(to bottom, #ed3863, #ed3863);
+    margin-bottom: -1px;
+    color: white;
+}
+.btnsbmt{
+    text-align: center;
+    ion-button{
+        margin-bottom: 29px;
+        margin-top: 10px;
+    }
+}

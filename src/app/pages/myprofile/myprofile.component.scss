@@ -1,0 +1,11 @@
+ion-card{
+    border-radius: 30px;
+}
+ion-content{
+    --background: linear-gradient(to bottom, #ed3863, white);
+}
+ion-toolbar{
+    --background: linear-gradient(to bottom, #ed3863, #ed3863);
+    margin-bottom: -1px;
+    color: white;
+}
