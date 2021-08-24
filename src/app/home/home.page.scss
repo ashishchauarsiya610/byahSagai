@@ -1,27 +1,26 @@
-#container {
+ion-content {
+  --background: url(../../assets/images/backgroundhome.jpg) 0 0/100% 100% no-repeat !important;
+}
+.logoImage{
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  img{
+    width: 165px;
+    margin-top: 40px;
+  }
 }
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.btnBoth{
+    text-align: center;
+    margin-top: 150px;
+    ion-button{
+      text-transform: capitalize;
+      width: 80%;
+      margin: 15px 10%;
+    }
+   p{
+     color: white;
+   }
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.login{
+  --background: white;
+  color: black;
 }

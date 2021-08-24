@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-back-button defaultHref="myProfile"></ion-back-button>
+    </ion-buttons>
+    <ion-title >Update Contact Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <ion-item>
+      <ion-label class="col1">
+       Person Name:
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input class="form-control" name="person" type="text" placeholder="Enter Person Name" [(ngModel)]="person_name" ngModel required></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+      Contact Number:
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input name="mobile" type="number" max="10" placeholder="Enter mobile number" [(ngModel)]="mobile" ngModel required></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+       Relation:
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input name="relation" type="text" placeholder="Enter relation with member" [(ngModel)]="r_member" ngModel required></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Convenient Time
+      </ion-label>
+      <ion-label class="col2">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <ion-select (ionChange)="checkChecked($event)" [(ngModel)]="time"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel" ngModel required>
+            <ion-select-option value="10AM - 6PM">10AM - 6PM</ion-select-option>
+            <ion-select-option value="10AM - 6PM">10AM - 6PM</ion-select-option>
+            <ion-select-option value="10AM - 6PM">10AM - 6PM</ion-select-option>          
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-button expand="block" type="submit" >Update</ion-button>
+    </form>
+  </ion-list>
+</ion-content>

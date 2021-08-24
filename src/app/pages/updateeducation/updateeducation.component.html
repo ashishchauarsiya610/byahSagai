@@ -1,0 +1,118 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-back-button defaultHref="myProfile"></ion-back-button>
+    </ion-buttons>
+    <ion-title >Career & Education</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+    <ion-item detail>
+      <!-- <ion-label class="col1">
+       Collage Name:
+      </ion-label> -->
+      <ion-label class="col2">
+        Collage Name:  <!-- <ion-input class="form-control" name="person" type="text" placeholder="Enter Person Name" [(ngModel)]="person_name" ngModel required></ion-input> -->
+      </ion-label>
+     <ion-label (click)="collegeSelect()">
+       <p [(ngModel)]="college_id" required>{{college_name}}</p>
+     </ion-label>
+    </ion-item>
+    <ion-item detail>
+      <ion-label class="col1">
+      Degree Name:
+      </ion-label>
+      <ion-label (click)="degreeSelect()">
+        <p [(ngModel)]="degree_id" required>{{degree_name}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item detail>
+      <ion-label class="col1">
+       Profession Name:
+      </ion-label>
+      <ion-label (click)="professionSelect()">
+        <p [(ngModel)]="profession_name" required>{{profession_name}}</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="col1">
+       Annual Income:
+      </ion-label>
+      <ion-label class="col2">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <ion-select (ionChange)="checkAnnual($event)" [(ngModel)]="annual_income"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel" ngModel required>
+            <ion-select-option value="50000">less than 50,000</ion-select-option>
+            <ion-select-option value="100000">50001-100000</ion-select-option>
+            <ion-select-option value="150000">100001-150000</ion-select-option> 
+            <ion-select-option value="200000">150001-200000</ion-select-option> 
+            <ion-select-option value="2500000">200001-250000</ion-select-option>   
+            <ion-select-option value="300000">250001-300000</ion-select-option> 
+            <ion-select-option value="350000">300001-350000</ion-select-option>  
+            <ion-select-option value="400000">350001-400000</ion-select-option> 
+            <ion-select-option value="4500000">400001-450000</ion-select-option> 
+            <ion-select-option value="500000">450001-500000</ion-select-option> 
+            <ion-select-option value="5500000">500001-550000</ion-select-option>  
+            <ion-select-option value="600000">550001-600000</ion-select-option> 
+            <ion-select-option value="650000">600001-650000</ion-select-option>  
+            <ion-select-option value="700000">650001-700000</ion-select-option> 
+            <ion-select-option value="750000">700001-750000</ion-select-option>  
+            <ion-select-option value="800000">800001-850000</ion-select-option> 
+            <ion-select-option value="900000">850001-900000</ion-select-option>  
+            <ion-select-option value="10000000">greater than 9,00,000</ion-select-option> 
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+       Employer Name:
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input name="employer_name" type="text" placeholder="Enter Employer Name" [(ngModel)]="employer_name" ngModel required></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+       Working Status:
+      </ion-label>
+      <ion-label class="col2">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <ion-select (ionChange)="workingStatus($event)" [(ngModel)]="current_working_status"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel" ngModel required>
+            <ion-select-option value="1">Yes</ion-select-option>
+            <ion-select-option value="0">No</ion-select-option>        
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+       Working Exp:
+      </ion-label>
+      <ion-label class="col2">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <ion-select (ionChange)="workingExp($event)" [(ngModel)]="total_exp"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel" ngModel required>
+            <ion-select-option value="1">1 year</ion-select-option>
+            <ion-select-option value="2">2 year</ion-select-option>      
+            <ion-select-option value="3">3 year</ion-select-option>
+            <ion-select-option value="4">4 year</ion-select-option> 
+            <ion-select-option value="5">5 year</ion-select-option>
+            <ion-select-option value="6">6 year</ion-select-option>   
+            <ion-select-option value="7">7 year</ion-select-option>
+            <ion-select-option value="8">8 year</ion-select-option> 
+            <ion-select-option value="9">9 year</ion-select-option>
+            <ion-select-option value="10">10 year</ion-select-option> 
+            <ion-select-option value="15">greater than 10 year</ion-select-option> 
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-button expand="block" type="submit" >Update</ion-button>
+    </form>
+  </ion-list>
+</ion-content>

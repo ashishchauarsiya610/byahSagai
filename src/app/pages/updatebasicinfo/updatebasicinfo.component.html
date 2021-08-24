@@ -1,0 +1,218 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="dismiss()">
+      <ion-back-button defaultHref="myProfile"></ion-back-button>
+    </ion-buttons>
+    <ion-title >Update Basic Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<ion-card>
+  <!-- <ion-row>
+    <ion-col size="5"><p>First name:</p></ion-col>
+    <ion-col size="7"><ion-input placeholder="Enter Input" [(ngModel)]="first_name"></ion-input></ion-col>
+    <ion-col size="5"><p>First name:</p></ion-col>
+    <ion-col size="7"><ion-input placeholder="Enter Input" [(ngModel)]="first_name"></ion-input></ion-col>
+  </ion-row> -->
+  <ion-list>
+    <ion-item>
+      <ion-label class="col1">
+       First Name:
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input placeholder="Enter first Name" [(ngModel)]="first_name"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Last Name
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input placeholder="Enter Last Name" [(ngModel)]="last_name"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Country Name:
+      </ion-label>
+      <ion-label class="col2" (click)="countryShow()">
+        <p *ngIf="country">{{country}}</p>
+        <ion-icon name="chevron-down-outline" *ngIf="!country"></ion-icon>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        State Name:
+      </ion-label>
+      <ion-label class="col2" (click)="stateShow()">
+        <p *ngIf="state">{{state}}</p>
+        <ion-icon slot="end" name="chevron-down-outline" *ngIf="!state"></ion-icon>
+      </ion-label>
+    </ion-item>  
+    <ion-item>
+      <ion-label class="col1">
+        City Name:
+      </ion-label>
+      <ion-label class="col2" (click)="cityShow()">
+        <p *ngIf="city">{{city}}</p>
+        <ion-icon slot="end" name="chevron-down-outline" *ngIf="!city"></ion-icon>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Place Of Birth
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input placeholder="Enter Place Of Birth" [(ngModel)]="place_of_birth"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Contact Address
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input placeholder="Enter Contact Address" [(ngModel)]="contact_address"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Native Address
+      </ion-label>
+      <ion-label class="col2">
+        <ion-input placeholder="Enter Native Address" [(ngModel)]="native_address"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="col1">
+        Height
+      </ion-label>
+      <ion-label class="col2">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <!-- <ion-label>Select Devices Type:</ion-label> -->
+          <ion-select (ionChange)="checkChecked($event)" [(ngModel)]="height"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel">
+            <ion-select-option value="5ft-152cm">5ft - 152cm</ion-select-option>
+            <ion-select-option value="5ft 1in-154cm">5ft 1in-154cm</ion-select-option>
+            <ion-select-option value="5ft 2in-157cm">5ft 2in - 157cm</ion-select-option>
+            <ion-select-option value="5ft 3in-160cm">5ft 3in - 160cm</ion-select-option>
+            <ion-select-option value="5ft 4in-162cm">5ft 4in - 162cm</ion-select-option>
+            <ion-select-option value="5ft 5in-165cm">5ft 5in - 165cm</ion-select-option>
+            <ion-select-option value="5ft 6in-167cm">5ft 6in - 167cm</ion-select-option>
+            <ion-select-option value="5ft 7in-170cm">5ft 7in - 170cm</ion-select-option>
+            <ion-select-option value="5ft 8in-172cm">5ft 8in - 172cm</ion-select-option>
+            <ion-select-option value="5ft 9in-175cm">5ft 9in - 175cm</ion-select-option>
+            <ion-select-option value="5ft 10in-177cm">5ft 10in - 177cm</ion-select-option>
+            <ion-select-option value="5ft 11in-180cm">5ft 11in - 180cm</ion-select-option>
+            <ion-select-option value="6ft-182cm">6ft - 182cm</ion-select-option>
+            <ion-select-option value="6ft 1in-185cm">6ft 1in - 185cm</ion-select-option>
+            <ion-select-option value="6ft 2in-187cm">6ft 2in - 187cm</ion-select-option>
+            <ion-select-option value="6ft 3in-190cm">6ft 3in - 190cm</ion-select-option>
+            <ion-select-option value="6ft 4in-193cm">6ft 4in - 193cm</ion-select-option>
+            <ion-select-option value="6ft 5in-195cm">6ft 5in - 195cm</ion-select-option>
+            <ion-select-option value="6ft 7in-198cm">6ft 6in - 198cm</ion-select-option>
+            <ion-select-option value="6ft 7in-200cm">6ft 7in - 200cm</ion-select-option>
+            <ion-select-option value="6ft 8in-203cm">6ft 8in - 203cm</ion-select-option>
+            <ion-select-option value="6ft 9in-205cm">6ft 9in - 205cm</ion-select-option>
+            <ion-select-option value="6ft 10in-208cm">6ft 10in - 208cm</ion-select-option>
+            <ion-select-option value="6ft 11in-210cm">6ft 11in - 210cm</ion-select-option>
+            <ion-select-option value="7ft-213cm">7ft - 213cm</ion-select-option>
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label class="">
+        Mother Tongue
+      </ion-label>
+      <ion-label class="">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <ion-select  (ionChange)="motherToungueChecked($event)" [(ngModel)]="motherTongueSelect"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel">
+            <ion-select-option *ngFor="let mt of motherTongue" value="{{mt.name}}">{{mt.name}}</ion-select-option>
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="">
+        Religion
+      </ion-label>
+      <ion-label class="">
+        <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+          <ion-select  (ionChange)="religionChecked($event)" [(ngModel)]="religionSelect"   ok-text="Okay" style="max-height: 100%;"
+            cancel-text="Cancel">
+            <ion-select-option *ngFor="let r of religionData" value="{{r.name}}">{{r.name}}</ion-select-option>
+          </ion-select>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-card style="border-radius: 20px; padding: 10px 8px;">
+      <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+        <ion-label>Select Gender:</ion-label>
+        <ion-select (ionChange)="genderChecked($event)" value="M" ok-text="Okay" style="max-height: 100%;"
+          cancel-text="Cancel">
+          <ion-select-option value="M">Male</ion-select-option>
+          <ion-select-option value="F">Female</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-card>
+    <ion-card style="border-radius: 20px; padding: 10px 8px;">
+      <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+        <ion-label>Marital Status:</ion-label>
+        <ion-select (ionChange)="maritalChecked($event)" value="no" ok-text="Okay" style="max-height: 100%;"
+          cancel-text="Cancel">
+          <ion-select-option value="yes">Yes</ion-select-option>
+          <ion-select-option value="no">No</ion-select-option>
+        </ion-select>
+      </div>
+    </ion-card>
+  </ion-list>
+  <ion-button expand="block" type="submit" (click)="updateBasic()">Update</ion-button>
+</ion-card>
+<div class="countrycard" *ngIf='countrycondition'>
+  
+  <ion-card style="border-radius: 21px;top: 10%;" >
+    <div class="crossCut"><ion-icon slot="end" (click)='countrycondition=!countrycondition' name="close-outline"></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search degree name Here :)" [(ngModel)]="searchCountry" (ionChange)="filterCountry()">
+    </ion-searchbar>
+    <ion-list *ngFor="let c of filterTermCountry">
+      <ion-item (click)="countrySelect(c[0].id,c[0].name)">
+        <ion-label>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p>{{c[0].id}}&nbsp;&nbsp;&nbsp;&nbsp;{{c[0].name}}</p>
+        </ion-label>       
+      </ion-item>
+    </ion-list> 
+  </ion-card>
+</div>
+
+<div class="countrycard" *ngIf='statecondition'>
+  <ion-card style="border-radius: 21px;top: 10%;" >
+    <ion-searchbar mode="ios" placeholder="Search state name Here :)" [(ngModel)]="searchState" (ionChange)="filterState()">
+    </ion-searchbar>
+    <ion-icon name='close' slot="end" color="dark" (click)='statecondition=!statecondition'></ion-icon>
+    <ion-list *ngFor="let s of filterTermState">
+      <ion-item (click)="stateSelect(s[0].id,s[0].name)">
+        <ion-label>
+          &nbsp;&nbsp;&nbsp;&nbsp;<p>{{s[0].id}}&nbsp;&nbsp;&nbsp;&nbsp;{{s[0].name}}</p>
+        </ion-label>       
+      </ion-item>
+    </ion-list> 
+  </ion-card>
+</div>
+
+<div class="countrycard" *ngIf='citycondition'>
+  <ion-card style="border-radius: 21px;top: 10%;">
+    <div class="crossCut"><ion-icon slot="end" (click)='citycondition=!citycondition' name="close-outline"></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search City name Here :)" [(ngModel)]="user.searchCity" (ionChange)="user.filterCity()">
+    </ion-searchbar>
+    <ion-list *ngFor="let c of user.filterTermCity">
+      <ion-item (click)="citySelect(c[0].id,c[0].name)">
+        <ion-label>
+          &nbsp;&nbsp;&nbsp;&nbsp; <p>{{c[0].id}}&nbsp;&nbsp;{{c[0].name}}</p>
+        </ion-label>       
+      </ion-item>
+    </ion-list> 
+  </ion-card>
+</div>
+</ion-content>

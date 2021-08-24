@@ -1,15 +1,339 @@
 <ion-header class="ion-no-border">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="home"></ion-back-button>
-      </ion-buttons>
-      <ion-title style="text-align: center;">My Profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-card>
-      <div>
-        <img src="../../../assets/images/ashish1.jpg">
-      </div>
-    </ion-card>
-  </ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="matches"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <div class="immg">  
+      <!-- <img src="../../../assets/images/ashishmanjesh.jpg"> -->
+      <img [src]="profile_image">
+      <ion-icon name="camera-outline"></ion-icon>
+        <p>{{first_name}} {{last_name}}</p>
+    </div>
+    <div class="item-slider">
+      <ion-slides [options]="slideOpts">
+        <ion-slide>
+          <ion-col class="slideCol">
+            <img src="../../../assets/images/ashishmanjesh.jpg">
+          </ion-col>
+          <ion-col class="slideCol">
+            <img src="../../../assets/images/mummysuman.jpg">
+          </ion-col>
+          <ion-col class="slideCol">
+            <img src="../../../assets/images/ashishmummy.jpg">
+          </ion-col>
+          <ion-col class="slideCol">
+            <img src="../../../assets/images/mummysuman.jpg">
+          </ion-col>
+          <ion-col class="slideCol">
+            <img src="../../../assets/images/ashishmummy.jpg">
+          </ion-col>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label>
+            <p class="table_heading">Basic Info</p>
+          </ion-label>
+        </ion-col>
+        <ion-col size="2" (click)="editBasic()">  
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-list *ngFor="let data of basic">
+        <ion-item lines="none">
+          <ion-label>
+            <p>Name</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{first_name}} {{last_name}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Email ID</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{email_id}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Contact</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{mobile}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>DOB</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{dob}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Height</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{height}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Place of Birth</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{place_of_birth}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Contact Address</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">
+            {{contact_address}}
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Native Address</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">
+              {{native_address}}
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="table_heading">Career & Education</ion-label>
+        </ion-col>
+        <ion-col size="2" (click)="educationUpdate()">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-list *ngFor="let ed of user.qualification_check">
+
+        <ion-item lines="none">
+          <ion-label>
+            <p>Profession</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{ed.collage_name}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Highest Qualification</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">BE</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Annual Income</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{ed.annual_income}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Employer Name</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{ed.annual_income}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Total Experience</p>
+          </ion-label>
+          <ion-label>
+             <p>{{ed.total_exp}} years</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Working As</p>
+          </ion-label>
+          <ion-label>
+            <p class="details">{{ed.profesion_name}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="table_heading">Contact Details</ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon name="create-outline" (click)="updateContact()"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-list *ngFor="let data of user.contact_details">
+        <ion-item lines="none">
+          <ion-label>
+            <p>Person Name</p>
+          </ion-label>
+          <ion-label>
+            <p>{{data.person_name}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Contact Number</p>
+          </ion-label>
+          <ion-label>
+            <p>{{data.mobile}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Relation</p>
+          </ion-label>
+          <ion-label>
+            <p>{{data.relationship_with_member}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Convenient Tme</p>
+          </ion-label>
+          <ion-label>
+            <p>{{data.convenient_time}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="table_heading">Religious background</ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-list *ngFor="let data of basic">
+        <ion-item lines="none">
+          <ion-label>
+            <p>Religion</p>
+          </ion-label>
+          <ion-label>
+            <p>{{religion}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Mother Tongue</p>
+          </ion-label>
+          <ion-label>
+            <p>{{mother_tongue}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Community</p>
+          </ion-label>
+          <ion-label>
+            <p>Chaurasiya</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Sub Community</p>
+          </ion-label>
+          <ion-label>
+            <p>Not Specified</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Caste of Bar</p>
+          </ion-label>
+          <ion-label>
+            <p>
+             Yes
+            </p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>Gotra / Gothram</p>
+          </ion-label>
+          <ion-label>
+            <p>
+             Not Specified
+            </p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div>
+      <ion-list>
+        <ion-item detail class="pref" (click)="prefClick()">
+          <ion-label>Preferences</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div>
+      <ion-row>
+        <ion-col size="10">
+          <ion-label class="table_heading">About MySelf,Partner and Family</ion-label>
+        </ion-col>
+        <ion-col size="2">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+   <ion-list>
+     <ion-item>
+       <p>India, officially the Republic of India, is a country in South Asia. It is the second-most populous country, the seventh-largest country by land area, and the most populous democracy in the world.</p>
+     </ion-item>
+   </ion-list>
+    </div>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button class="myprofile">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>My Account</ion-label>
+        </ion-tab-button>
+        <ion-tab-button class="matches" tab='matches'>
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-label>Matches</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab='publicProfile'>
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>public profile</ion-label>
+        </ion-tab-button>
+        <ion-tab-button>
+          <ion-icon name="chatbubbles-outline"></ion-icon>
+          <ion-label>Chat</ion-label>
+        </ion-tab-button>
+
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

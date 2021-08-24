@@ -1,0 +1,129 @@
+<ion-content>
+  <ion-toolbar class="ion-no-border toolIon">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+
+  <ion-card class="cardIon">
+  <form [formGroup]="register" (ngSubmit)="onSubmit(register.value)">
+    <div>
+      
+        <div class="textHeading">
+          <h4 class="h4Text">Create Account</h4>
+          <!-- <h6 class="h6Text">Create a free account</h6> -->
+        </div>
+        <div class="label-float">
+          <input type="text" formControlName="email" placeholder="Enter Email" required="true" />
+          <label>E-Mail</label>
+          <div *ngFor="let error of errorMessages.email">
+            <div *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+              <ng-container>
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="label-float" style="min-width: 98%;">
+          <input class="mobileInput" style="padding-left: 55px;min-width: 115%;" type="text" formControlName="mobile"
+            ng2TelInput (hasError)="hasError($event)" (ng2TelOutput)="getNumber($event)"
+            (countryChange)="onCountryChange($event)" (intlTelInputObject)="telInputObject($event)"
+            placeholder="995313564" min="10" max="10" [ng2TelInputOptions]="{initialCountry: 'in'}" required="true" />
+          <label>Mobile Number</label>
+          <div *ngFor="let error of errorMessages.mobile">
+            <div *ngIf="mobile.hasError(error.type) && (mobile.dirty || mobile.touched)">
+              <ng-container>
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="label-float">
+          <input type="text" formControlName="password" placeholder="Enter Password" />
+          <label>Password</label>
+          <div *ngFor="let error of errorMessages.password">
+            <div *ngIf="password.hasError(error.type) && (password.dirty || password.touched)">
+              <ng-container>
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="label-float" [class.invalid]="showErrors('email')">
+          <input type="text" formControlName="fname" placeholder="Enter First Name" />
+          <label>First Name</label>
+          <div *ngFor="let error of errorMessages.fname">
+            <div *ngIf="fname.hasError(error.type) && (fname.dirty || fname.touched)">
+              <ng-container>
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="label-float" [class.invalid]="showErrors('email')">
+          <input type="text" formControlName="lname" placeholder="Enter Last Name" />
+          <label>Last Name</label>
+          <div *ngFor="let error of errorMessages.lname">
+            <div *ngIf="lname.hasError(error.type) && (lname.dirty || lname.touched)">
+              <ng-container>
+                <small class="error-message">{{error.message}}</small>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="label-float">
+        <input type="text" formControlName="profilefor" placeholder=" " />
+        <label>Profile For</label>
+        <div *ngFor="let error of errorMessages.profilefor">
+          <div *ngIf="profilefor.hasError(error.type) && (profilefor.dirty || profileforouched)">
+            <ng-container >
+             <small class="error-message">{{error.message}}</small>
+            </ng-container>
+          </div>
+        </div>
+      </div> -->
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+          <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+            <ion-label>Select Profile For:</ion-label>
+            <ion-select (ionChange)="profileChecked($event)" value="self" ok-text="Okay" style="max-height: 100%;"
+              cancel-text="Cancel">
+              <ion-select-option value="self">Self</ion-select-option>
+              <ion-select-option value="daughter">Daughter</ion-select-option>
+              <ion-select-option value="son">Son</ion-select-option>
+              <ion-select-option value="cousion">Cousion</ion-select-option>
+              <ion-select-option value="nephew">Nephew</ion-select-option>
+            </ion-select>
+          </div>
+        </ion-card>
+
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+          <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
+            <ion-label>Select Gender:</ion-label>
+            <ion-select (ionChange)="genderChecked($event)" value="M" ok-text="Okay" style="max-height: 100%;"
+              cancel-text="Cancel">
+              <ion-select-option value="M">Male</ion-select-option>
+              <ion-select-option value="F">Female</ion-select-option>
+            </ion-select>
+          </div>
+        </ion-card>
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+          <ion-row>
+             <ion-col size="8">
+              <ion-icon name="person-outline" *ngIf="!currentImage"></ion-icon>
+              <img [src]="currentImage" *ngIf="currentImage">
+             </ion-col>
+             <ion-col size="4" (click)="cameraClick()">
+              <ion-icon name="camera-outline"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+
+        <ion-button expand="block" shape="round" type="submit" [disabled]="register.valid">Submit</ion-button>
+    
+    </div>
+  </form>
+</ion-card>
+  <img [src]="currentImage">
+  <!-- <ion-button (click)="cameraClick()">camera</ion-button> -->
+</ion-content>

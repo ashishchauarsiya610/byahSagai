@@ -1,0 +1,36 @@
+.background-image{
+    --background: url(../../../assets/images/backgroundhome.jpg) 0 0/100% 100% no-repeat;
+  }
+  .login-logo{
+      text-align: center;
+      padding-top: 10%;
+      img{
+        width: 46%;
+      }
+  }
+  .login-card-heading{
+    text-align: center;
+    font-weight: bold;
+  }
+  .login-card{
+    border-radius: 21px;
+    background: #f1dce5;
+    margin-top: 17%;
+  }
+  ion-item{
+    margin: 5% 3%;
+    width: 94%;
+    border-radius: 21px;
+  }
+  ion-row{
+    text-align: center;
+    margin-top: -14px;
+  }
+  .login-button{
+    text-align: center;
+    margin-bottom: 17px;
+   ion-button{
+    margin: 0 25%;
+    --border-radius: 21px;
+   }
+  }

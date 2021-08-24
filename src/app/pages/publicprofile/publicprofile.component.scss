@@ -1,0 +1,208 @@
+.cardImage{
+    min-height: 405px;
+    position: relative;
+    margin: auto 5px;
+    margin-top: 15px;
+    .imgset{
+    min-height: 405px;
+    margin-bottom: -3px;
+    border-radius: 21px;
+    }
+}
+.myOverlay{
+    width: 95%;
+    min-height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 30px;
+    // background: #000;
+    color: #fff;
+    opacity: 999;
+}
+.overlaytop{
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    z-index: 99;
+    top: 12px;
+    opacity: 0.5;
+    /* background: #000; */
+    color: #fff;
+    text-align: end;
+}
+.camera{
+    margin-right: 10px;
+    display: inline-flex;
+    background: black;
+    min-width: 65px;
+    height: 35px;
+    /* font-size: 23px; */
+    border-radius: 21px;
+    opacity: 999;
+    ion-icon{ 
+    margin-top: 11px;
+    margin-left: 5px;
+    font-size: 20px;
+    }
+    p{
+        margin-left: 5px;
+    }
+}
+.headingName{
+    h2{
+        margin-top: 10px;
+        font-weight: bold;
+    }
+   display: inline-flex;
+    ion-icon{
+     margin-top: 15px;
+     margin-left: 5px;
+     font-size: 12px;
+    }
+    .online{
+     background: green;
+     border-radius: 50%;
+     margin-top: 21px;
+    }
+}
+.profilesetIcon{
+    text-align: center;
+    // display: inline-flex;
+    margin: 0 10%;
+    // width: 80%;
+    margin-top: -25px;
+    .profileIcon{
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    color: red;
+    }
+}
+ion-card{
+    border-radius: 21px;
+}
+.personalIcon{
+    text-align: center;
+    font-size: 35px;
+    border-radius: 50%;
+    border: 1px solid red;
+    color: red;
+    background: red;
+    min-width: 40px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    ion-icon{
+        color: white;
+    }
+}
+h1{
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+
+    .basicCard{
+        border-top: 8px solid blue;
+    }
+    .eduCard{
+        border-top: 8px solid #ed3863;
+    }
+.matchResult{
+    display: inline-flex;
+    margin: 15px 10%;
+    text-align: center;
+}
+.img1Match{
+    transform: rotate(-20deg);
+    width: 35%;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 10%;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+.img2Match{
+    transform: rotate(20deg);
+    width: 35%;
+    border: 2px solid white;
+}
+.matchingResult{
+    margin: -14px 0;
+    background: linear-gradient(to right, #ed3863, white);
+    border-radius: 0 0 240px 50%/60px;
+    p{
+        text-align: center;
+        padding-top: 20px;
+        color: white;
+        opacity: 99999;
+    }
+}
+
+#heart { 
+    position: relative; 
+    width: 100px; 
+    height: 90px; 
+} 
+
+#heart:before, #heart:after { 
+    position: absolute; 
+    content: ""; 
+    left: 30px; 
+    top: 0; 
+    width: 30px; 
+    height: 50px; 
+    background: red; 
+    border-radius: 50px 50px 0 0; 
+    transform: rotate(-45deg); 
+    transform-origin: 0 100%; 
+} 
+
+#heart:after { 
+    left: 0; 
+    transform: rotate(45deg); 
+    transform-origin :100% 100%; 
+}
+.heartCount{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    margin-left: 45%;
+    margin-top: -60px;
+}
+.totalmatches{
+    text-align: center;
+}
+.item-slider{
+    margin: 10px 0;
+    // text-align: center;
+    img{
+        min-height: 305px;
+        min-width: 240px;
+        border-radius: 21px;
+    }
+}
+.myOverlay1{
+    width: 95%;
+    min-height: 60px;
+    position: absolute;
+    z-index: 99;
+    bottom: 12px;
+    color: #fff;
+    opacity: 999;
+    text-align: left;
+}
+.camera1{
+    ion-icon{
+        margin-top: 1px;
+    margin-left: 8px;
+    font-size: 46px;
+    margin-right: 15px;
+    }
+}
+.public{
+    color: #ed3863;
+}

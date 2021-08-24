@@ -1,3 +1,278 @@
-<p>
-  publicprofile works!
-</p>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="matches"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Profile Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="cardImage">
+    <div class="overlaytop">
+      <div class="camera">
+        <p>10</p>
+        <ion-icon name="camera-outline"></ion-icon>
+      </div>
+    </div>
+    <div class="cardImage">
+      <img src="../../../assets/images/ashishmummy.jpg" class="imgset">
+    </div>
+
+    <div class="myOverlay">
+      <div class="headingName">
+        <h5 style="margin-left: 20px;">Ashish Chaurasiya</h5>
+        <ion-icon name="radio-button-off" class="online"></ion-icon>
+      </div>
+      <div class="card-subtitle" style="margin-top: -25px;margin-left: 20px;">
+        <h6 style="font-size: 14px;">35yrs,5'2",Hindi,Allahabad,ashish Uttar Pradesh Allahabad,Uttar Pradesh</h6>
+      </div>
+    </div>
+  </div>
+  <div class="profilesetIcon">
+    <ion-row>
+      <ion-col size="4">
+        <div>
+          <ion-icon name="star-outline" class="profileIcon star1"></ion-icon><br>
+          <ion-label>Shortlist</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div>
+          <ion-icon name="chatbox-outline" class="profileIcon chat1"></ion-icon><br>
+          <ion-label>Chat</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div>
+          <ion-icon name="heart-outline" class="profileIcon heart1"></ion-icon><br>
+          <ion-label>Connect</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-card class="cardAbout">
+    <ion-card-header>
+      <ion-card-subtitle>About Ashish C</ion-card-subtitle>
+      <ion-card-content>
+        In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form
+        of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder
+        before final copy is available.
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card class="basicCard">
+    <ion-item>
+      <ion-avatar class="personalIcon" style="background: blue;border: 2px solid blue;">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h1>Basic Information</h1>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <p>DOB</p>
+      </ion-label>
+      <ion-label>
+        <p class="details">01 January 1997</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <p>DOB</p>
+      </ion-label>
+      <ion-label>
+        <p class="details">01 January 1997</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <p>DOB</p>
+      </ion-label>
+      <ion-label>
+        <p class="details">01 January 1997</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+
+  <ion-card class="eduCard">
+    <ion-item>
+      <ion-avatar class="personalIcon">
+        <ion-icon name="school-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h1>Career & Education</h1>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <p>DOB</p>
+      </ion-label>
+      <ion-label>
+        <p class="details">01 January 1997</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <p>DOB</p>
+      </ion-label>
+      <ion-label>
+        <p class="details">01 January 1997</p>
+      </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>
+        <p>DOB</p>
+      </ion-label>
+      <ion-label>
+        <p class="details">01 January 1997</p>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+   <div class="matchingResult">
+     <p>Matching Results</p>
+     <!-- <ion-row>
+       <ion-col>
+         <img src="../../../assets/images/ashish1.jpg">
+       </ion-col>
+       <ion-col>
+         <img src="../../../assets/images/ashish2.jpg">
+       </ion-col>
+     </ion-row> -->
+     <div class="matchResult">
+      <img class="img1Match" src="../../../assets/images/ashish1.jpg">
+      <img class="img2Match" src="../../../assets/images/ashish2.jpg">
+     </div>
+     <div id="heart" class="heartCount"><div>90%</div></div>
+   </div>
+  <ion-list>
+    <ion-item>
+      <ion-label> <p>Age</p></ion-label>
+      <ion-label> <p>21yrs-27yrs</p></ion-label>
+      <ion-avatar style="padding-top: 10px;">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+    <ion-item>
+      <ion-label> <p>Age</p></ion-label>
+      <ion-label> <p>21yrs-27yrs</p></ion-label>
+      <ion-avatar style="padding-top: 10px;">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+    <ion-item>
+      <ion-label> <p>Age</p></ion-label>
+      <ion-label> <p>21yrs-27yrs</p></ion-label>
+      <ion-avatar style="padding-top: 10px;">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+    <div class="totalmatches">
+      <h6>Matches 9/9(90%) of her Preferences</h6>
+    </div>
+  </ion-list>
+  </ion-card>
+  <div>
+    <h6 class="totalmatches">Similar Profile</h6>
+  </div>
+  <div class="item-slider">
+    <ion-slides [options]="slideOpts">
+      <ion-slide>
+        <ion-col class="slideCol">
+          <div class="overlaytop">
+            <div class="camera1">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+          </div>
+          <img src="../../../assets/images/ashishmanjesh.jpg">
+          <div class="myOverlay1">
+            <div class="headingName">
+              <h5 style="margin-left: 20px;">Ashish Chaurasiya</h5>
+              <ion-icon name="radio-button-off" class="online"></ion-icon>
+            </div>
+            <div class="card-subtitle" style="margin-top: -25px;margin-left: 20px;">
+              <h6 style="font-size: 14px;">25yrs,5'2",Hindi,Chaurasiya, Allahabad,Uttar Pradesh</h6>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col class="slideCol">
+          <div class="overlaytop">
+            <div class="camera1">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+          </div>
+          <img src="../../../assets/images/mummysuman.jpg">
+          <div class="myOverlay">
+            <div class="headingName">
+              <h5 style="margin-left: 20px;">Ashish Chaurasiya</h5>
+              <ion-icon name="radio-button-off" class="online"></ion-icon>
+            </div>
+            <div class="card-subtitle" style="margin-top: -25px;margin-left: 20px;">
+              <h6 style="font-size: 14px;">25yrs,5'2",Hindi,Chaurasiya, Allahabad,Uttar Pradesh</h6>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col class="slideCol">
+          <div class="overlaytop">
+            <div class="camera1">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+          </div>
+          <img src="../../../assets/images/ashishmummy.jpg">
+          <div class="myOverlay1">
+            <div class="headingName">
+              <h5 style="margin-left: 20px;">Ashish Chaurasiya</h5>
+              <ion-icon name="radio-button-off" class="online"></ion-icon>
+            </div>
+            <div class="card-subtitle" style="margin-top: -25px;margin-left: 20px;">
+              <h6 style="font-size: 14px;">25yrs,5'2",Hindi,Chaurasiya, Allahabad,Uttar Pradesh</h6>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col class="slideCol">
+          <div class="overlaytop">
+            <div class="camera1">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+          </div>
+          <img src="../../../assets/images/mummysuman.jpg">
+          <div class="myOverlay1">
+            <div class="headingName">
+              <h5 style="margin-left: 20px;">Ashish Chaurasiya</h5>
+              <ion-icon name="radio-button-off" class="online"></ion-icon>
+            </div>
+            <div class="card-subtitle" style="margin-top: -25px;margin-left: 20px;">
+              <h6 style="font-size: 14px;">25yrs,5'2",Hindi,Chaurasiya, Allahabad,Uttar Pradesh</h6>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col class="slideCol">
+          <div class="overlaytop">
+            <div class="camera1">
+              <ion-icon name="heart-outline"></ion-icon>
+            </div>
+          </div>
+          <img src="../../../assets/images/ashishmummy.jpg">
+          <div class="myOverlay1">
+            <div class="headingName">
+              <h5 style="margin-left: 20px;">Ashish Chaurasiya</h5>
+              <ion-icon name="radio-button-off" class="online"></ion-icon>
+            </div>
+            <div class="card-subtitle" style="margin-top: -25px;margin-left: 20px;">
+              <h6 style="font-size: 14px;">25yrs,5'2",Hindi,Chaurasiya, Allahabad,Uttar Pradesh</h6>
+            </div>
+          </div>
+        </ion-col>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>

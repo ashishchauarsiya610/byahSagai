@@ -1,0 +1,35 @@
+<ion-content class="background-image">
+  <div class="login-logo">
+      <img src="../../../assets/images/logo.png">
+  </div>
+
+  <div>
+      <ion-card class="login-card">
+          <div class="login-card-heading">
+              <h3>Login to your account</h3>
+          </div>
+          <div>
+              <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                  <ion-item >
+                      <ion-input  name="email" type="email" placeholder="Enter Phone / Email" ngModel required></ion-input>
+                    </ion-item>
+                    <ion-item >
+                      <ion-input  name="password" type="text" placeholder="Enter Password" ngModel required></ion-input>
+                    </ion-item>
+                   <div class="login-forget">
+                  <ion-row>
+                      <ion-col size="6">
+                          <p>New User?<a (click)="signUpClick()"> Sign Up</a></p>
+                      </ion-col>
+                      <ion-col size="6"><p (click)="forgetPass()"><a>Forgot Password?</a></p></ion-col>
+                  </ion-row>
+                   </div>
+                   <div class="login-button">
+                      <ion-button expand="block" type="submit" [disabled]="contactForm.invalid">Login</ion-button>
+                   </div>
+                  
+                  </form>
+          </div>
+      </ion-card>
+  </div>
+</ion-content>

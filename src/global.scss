@@ -24,3 +24,23 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+ion-content{
+    --background: linear-gradient(to bottom, #ed3863, white);
+}
+ion-toolbar{
+    --background: linear-gradient(to bottom, #ed3863, #ed3863);
+    margin-bottom: -1px;
+    color: white;
+}
+ion-title{
+    text-align: center;
+    opacity: 9999;
+}
+.crossCut{
+    text-align: end;
+    font-size: 25px;
+    color: red;
+    margin: 10px 10px 0px 0px;
+    opacity: 9999;
+}

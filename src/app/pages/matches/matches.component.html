@@ -1,0 +1,328 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Search Results</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="item-slider">
+    <ion-slides #buttonSlideEle pager="false" [options]="slideOpts">
+      <ion-slide>
+        <ion-button expand="round" size="small">New (15)</ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button expand="round" size="small" class="btnMatches">Matches (15)</ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button expand="round" size="small">View Me (15)</ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button expand="round" size="small">Shortlisted (15)</ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button expand="round" size="small">Recent View</ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button expand="round" size="small">Near Me (15)</ion-button>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+  <div>
+    <!-- <ion-card> -->
+    <!-- <ion-item class="itmimg">  
+        <img src="../../../assets/images/ashish1.jpg" style="width: 115px;">
+      <ion-label class="more-details">
+        <h2>Ashish Chaurasiya</h2>
+        <h5>35yrs,5'2",Hindi,Allahabad</h5>
+        <h5>Software Engineer</h5>
+        <h5>Allahabad,Uttar Pradesh</h5>
+      </ion-label>
+    </ion-item> -->
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashish1.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off" class="online"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/mummysuman.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashishmummy.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashishmanjesh.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashish2.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashish3.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashish4.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashish5.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img src="../../../assets/images/ashish6.jpg">
+      </ion-thumbnail>
+      <div>
+        <ion-label class="more-details">
+          <div class="headingName">
+            <h2>Ashish Chaurasiya</h2>
+            <ion-icon name="radio-button-off"></ion-icon>
+          </div>
+          <h5>35yrs,5'2",Hindi,Allahabad</h5>
+          <h5>Software Engineer</h5>
+          <h5>Allahabad,Uttar Pradesh</h5>
+        </ion-label>
+        <div class="matchIcon">
+          <div class="start start1 matchIcon1">
+            <ion-icon name="star-outline"></ion-icon><span>Shortlist</span>
+          </div>
+          <div class="chat chat1 matchIcon1">
+            <ion-icon name="chatbubbles-outline"></ion-icon><span>Chat</span>
+          </div>
+          <div class="heart heart1 matchIcon1">
+            <ion-icon name="heart-outline"></ion-icon><span>Connect</span>
+          </div>
+        </div>
+      </div>
+    </ion-item>
+    <!-- </ion-card> -->
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="secondary">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom"  >
+        <ion-tab-button (click)="myProfile()">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>My Account</ion-label>
+        </ion-tab-button>
+        <ion-tab-button class="matches" >
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-label>Matches</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab='publicProfile'>
+          <ion-icon name="heart-outline"></ion-icon>
+          <ion-label>public profile</ion-label>
+        </ion-tab-button>
+        <ion-tab-button>
+          <ion-icon name="chatbubbles-outline"></ion-icon>
+          <ion-label>Chat</ion-label>
+        </ion-tab-button>
+
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
