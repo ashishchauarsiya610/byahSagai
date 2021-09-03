@@ -49,10 +49,13 @@ ion-row{
 }
 .item-slider{
     margin: 12px 0;
-    text-align: center;
+    // text-align: center;
     img{
-        min-width: 82px;
-        max-width: 82px;
+        max-width: 70px;
+        max-height: 70px;
+        min-width: 70px;
+        height: 70px;
+        border-radius: 10px;
     }
 }
 ion-label{

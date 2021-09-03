@@ -18,6 +18,7 @@ export class UpdatebasicinfoComponent implements OnInit {
 @Input() profile_image:any;
 @Input() profile_for:any;
 dType;
+dob;
 countrycondition=false;
 statecondition=false;
 citycondition=false;
@@ -29,7 +30,7 @@ citycondition=false;
               private user: UserService,
               private viewCtrl: ModalController) { 
                 console.log(this.first_name);
-              this.getComunityData();
+              // this.getComunityData();
               }
 
   ngOnInit() {}
@@ -49,14 +50,25 @@ this.viewCtrl.dismiss();
     console.log(this.place_of_birth);
     console.log(this.contact_address);
     console.log(this.native_address);
+    console.log(this.dob);
     let body={
-      id:'12',
+      id: localStorage.getItem('user_id'),
       first_name: this.first_name,
       last_name : this.last_name,
       profile_for: this.profile_for,
       contact_address: this.contact_address,
       native_address: this.native_address,
-      place_of_birth: this.place_of_birth
+      dob: this.dob,
+      height: this.total_minHeight,
+      religion: this.selectedReligionId,
+      place_of_birth: this.place_of_birth,
+      marital_status: this.m_status,
+      diet_reference:this.selectedDiet,
+      mother_tongue:this.motherTongueSelect,
+      gender: this.gender,
+      country:this.countryId,
+      state: this.stateId,
+      city: this.cityId,
     }
     this.user.present('')
   this.auth.updateBasicInfo(body).subscribe(res=>{
@@ -72,7 +84,7 @@ this.viewCtrl.dismiss();
   }
   countryShow(){
       this.user.countryget();
-  this.countrycondition=true;
+      this.countrycondition=true;
   }
   countryData;
   stateData;
@@ -90,23 +102,10 @@ this.viewCtrl.dismiss();
   }
 
   stateShow(){
-      this.stateget(this.countryId);
+      this.user.stateget(this.countryId);
   this.statecondition=true;
   }
-  stateget(id){
-    this.auth.getState(id).subscribe(state=>{
-      console.log(state);
-     this.stateData=state.state;
-         for (let i = 0; i < this.stateData.length; i++) {
-        this.filterTermState[i] = [{
-          "id": this.stateData[i].id,
-          "name": this.stateData[i].name,
-        }]
-      }
-    },err=>{
-      console.log(err.error.message);
-    })
-  }
+
   stateId;
   stateSelect(sid,sname){
     this.stateId=sid;
@@ -115,38 +114,37 @@ this.viewCtrl.dismiss();
     console.log(this.stateId  +"" + this.state);
   }
   cityShow(){
-    this.cityget(this.stateId);
+    this.user.cityget(this.stateId);
     this.citycondition=true;
   }
-  cityget(id){
-    this.user.present('loading..');
-    this.auth.getCity(id).subscribe(city1=>{
-      this.user.dismiss();
-      this.cityData=city1.city;
-         for (let i = 0; i < this.cityData.length; i++) {
-        this.filterTermCity[i] = [{
-          "id": this.cityData[i].id,
-          "name": this.cityData[i].name,
-        }]
-      }
-      console.log(city1);
-    },err=>{
-      this.user.dismiss();
-      console.log(err.error.message);
-    })
-  }
+cityId;
   citySelect(cityId,cityName){
     this.city=cityName;
+    this.cityId=cityId;
     this.citycondition=false;
   }
-religionData;
-  getReligionData(){
-    this.auth.getReligion().subscribe(rel=>{
-      console.log(rel);
-      this.religionData=rel.religion;
-    },err=>{
-      console.log(err.error.message);
-    })
+  religioncard=false;
+  religionShow() {
+    this.user.religionData();
+  this.religioncard=true;
+  }
+  selectedReligion;
+  selectedReligionId;
+  selectReligion(e){
+    console.log(e.currentTarget.value);
+    this.selectedReligion=e.currentTarget.value.name;
+    this.selectedReligionId=e.currentTarget.value.id;
+    this.religioncard=false;
+  }
+  dietcard=false;
+  dietShow() {
+  this.dietcard=true;
+  }
+  selectedDiet;
+  selectDiet(e){
+    console.log(e.currentTarget.value);
+    this.selectedDiet=e.currentTarget.value.diet;
+    this.dietcard=false;
   }
   religionSelect;
   motherTongueSelect;
@@ -166,7 +164,7 @@ religionData;
       console.log(err.error.message);
     })
   }
-  gender:any="M";
+  gender;
 genderChecked(e){
   this.gender = e.currentTarget.value;
   if(this.gender==undefined){
@@ -185,6 +183,24 @@ if(this.m_status==undefined){
 }else{
   console.log(this.m_status)
 }
+}
+minheightcard = false;
+minHeightShow() {
+  this.minheightcard = true;
+  this.user.heightAll();
+}
+selectedMinHeight;
+selectMinHeightCm;
+selectedMinHeightId;
+total_minHeight;
+selectMinHeight(e) {
+  console.log(e.currentTarget.value);
+  this.selectedMinHeight = e.currentTarget.value.ft.split(" ")[0];
+  this.selectMinHeightCm=e.currentTarget.value.cm;
+  this.selectedMinHeightId = e.currentTarget.value.id;
+  this.total_minHeight=this.selectedMinHeight+"-"+this.selectMinHeightCm;
+  console.log(this.total_minHeight)
+  this.minheightcard = false;
 }
   motherTongue: any[]=[
     {
@@ -221,33 +237,10 @@ if(this.m_status==undefined){
       }
   ]
  
-  searchState: any;
-  searchCity: any;
+ 
 
-     filterState(){
-    this.filterTermState = [];
-    this.filterTermss = this.stateData.filter(item => item.name.toLowerCase().indexOf(this.searchState.toLowerCase()) > -1);
-    console.log(this.filterTermss.length);
-    console.log(this.filterTermss);
-    for (let i = 0; i < this.filterTermss.length; i++) {
-      this.filterTermState[i] = [{
-          'id': this.filterTermss[i].id,
-          'name': this.filterTermss[i].name
-      }]
-    }
-  }
-     filterCity(){
-    this.filterTermCity = [];
-    this.filterTermss = this.cityData.filter(item => item.name.toLowerCase().indexOf(this.searchCity.toLowerCase()) > -1);
-    // console.log(this.filterTermss.length);
-    // console.log(this.filterTermss);
-    for (let i = 0; i < this.filterTermss.length; i++) {
-      this.filterTermCity[i] = [{
-          'id': this.filterTermss[i].id,
-          'name': this.filterTermss[i].name
-      }]
-    }
-  }
+
+  
 
 
 }

@@ -25,8 +25,8 @@ c_list;
               private user: UserService,
               private modalCtrl: ModalController) { }
 
-  ngOnInit() {this.user.getCollage();
-    this.user.getDegree();}
+  ngOnInit() {
+            }
 
  
 

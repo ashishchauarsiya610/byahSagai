@@ -9,7 +9,7 @@ ion-row{
 }
 ion-card{
     border-radius: 21px;
-    margin-top: -6px;
+    // margin-top: -6px;
 }
 ion-button{
     margin: 0 25%;
@@ -17,4 +17,7 @@ ion-button{
    }
    .startDiv{
        margin-bottom: 20px;
+   }
+   ion-footer{
+       --background:white;
    }

@@ -13,7 +13,7 @@
 </ion-header>
 <ion-content>
   <div class="item-slider">
-    <ion-slides #buttonSlideEle pager="false" [options]="slideOpts">
+    <ion-slides #slides pager="false" [options]="slideOpts" (ionSlideDidChange)="slider($event)" (ionSlideNextStart)="slider2($event)" (ionSlideReachStart)="initialSlide($event)" (ionSlideTap)="onSlideTapped($event)">
       <ion-slide>
         <ion-button expand="round" size="small">New (15)</ion-button>
       </ion-slide>
@@ -46,19 +46,19 @@
         <h5>Allahabad,Uttar Pradesh</h5>
       </ion-label>
     </ion-item> -->
-    <ion-item>
+    <ion-item *ngFor="let x of dailyAllData">
       <ion-thumbnail slot="start">
         <img src="../../../assets/images/ashish1.jpg">
       </ion-thumbnail>
       <div>
         <ion-label class="more-details">
           <div class="headingName">
-            <h2>Ashish Chaurasiya</h2>
+            <h2>{{x.first_name}} {{x.last_name}} </h2>
             <ion-icon name="radio-button-off" class="online"></ion-icon>
           </div>
-          <h5>35yrs,5'2",Hindi,Allahabad</h5>
-          <h5>Software Engineer</h5>
-          <h5>Allahabad,Uttar Pradesh</h5>
+          <h5>35yrs,&nbsp;{{x.height}}-{{x.height_cm}},&nbsp;{{mother_tongue}},&nbsp;</h5>
+          <h5>{{x.professionname}}</h5>
+          <h5>{{x.cityname}},&nbsp;{{x.statename}}</h5>
         </ion-label>
         <div class="matchIcon">
           <div class="start start1 matchIcon1">
@@ -74,7 +74,7 @@
       </div>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-thumbnail slot="start">
         <img src="../../../assets/images/mummysuman.jpg">
       </ion-thumbnail>
@@ -100,9 +100,9 @@
           </div>
         </div>
       </div>
-    </ion-item>
+    </ion-item> -->
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-thumbnail slot="start">
         <img src="../../../assets/images/ashishmummy.jpg">
       </ion-thumbnail>
@@ -296,8 +296,8 @@
           </div>
         </div>
       </div>
-    </ion-item>
-    <!-- </ion-card> -->
+    </ion-item> -->
+
   </div>
 
 </ion-content>

@@ -86,7 +86,7 @@
         <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
           <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
             <ion-label>Select Profile For:</ion-label>
-            <ion-select (ionChange)="profileChecked($event)" value="self" ok-text="Okay" style="max-height: 100%;"
+            <ion-select (ionChange)="profileChecked($event)" [value]="profile" ok-text="Okay" style="max-height: 100%;"
               cancel-text="Cancel">
               <ion-select-option value="self">Self</ion-select-option>
               <ion-select-option value="daughter">Daughter</ion-select-option>
@@ -100,13 +100,95 @@
         <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
           <div class="selectdevice" style="margin-top: 10px;max-height: 100%;">
             <ion-label>Select Gender:</ion-label>
-            <ion-select (ionChange)="genderChecked($event)" value="M" ok-text="Okay" style="max-height: 100%;"
+            <ion-select (ionChange)="genderChecked($event)" [value]="gender" ok-text="Okay" style="max-height: 100%;"
               cancel-text="Cancel">
               <ion-select-option value="M">Male</ion-select-option>
               <ion-select-option value="F">Female</ion-select-option>
             </ion-select>
           </div>
         </ion-card>
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+        <ion-item>
+          <ion-label class="col1">
+            DOB
+          </ion-label>
+          <ion-label class="col2">
+            <ion-datetime displayFormat="YYYY-MM-DD" min="1950" max="2050" (ionChange)="date($event)" value="dob"></ion-datetime>
+          </ion-label>
+        </ion-item>
+        </ion-card>
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+        <ion-item>
+          <ion-label>Religion</ion-label>
+          <ion-label (click)="religionShow()">
+            <p class="ion-text-wrap" *ngIf="selectedReligion">:&nbsp;&nbsp; {{selectedReligion}}</p>
+            <ion-icon class="dropIcon" slot="end" name="chevron-down-outline" *ngIf="!selectedReligion"></ion-icon>
+          </ion-label>
+        </ion-item>
+        </ion-card>
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+        <ion-item >
+          <ion-label class="col1">
+           Profession Name:
+          </ion-label>
+          <ion-label (click)="professionSelect()">
+            <p *ngIf="profession_name">{{profession_name}}</p>
+            <ion-icon class="dropIcon" slot="end" name="chevron-down-outline" *ngIf="!profession_name"></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+        <ion-item>
+          <ion-label class="col1">
+            State Name:
+          </ion-label>
+          <ion-label class="col2" (click)="stateShow()">
+            <p *ngIf="state">{{state}}</p>
+            <ion-icon class="dropIcon" slot="end" name="chevron-down-outline" *ngIf="!state"></ion-icon>
+          </ion-label>
+        </ion-item>
+        </ion-card>
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+        <ion-item>
+          <ion-label class="col1">
+            City Name:
+          </ion-label>
+          <ion-label class="col2" (click)="cityShow()">
+            <p *ngIf="city">{{city}}</p>
+            <ion-icon class="dropIcon" slot="end" name="chevron-down-outline" *ngIf="!city"></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+        <ion-item>
+          <ion-label class="col1">
+            Community:
+          </ion-label>
+          <ion-label class="col2" (click)="communityShow()">
+            <p *ngIf="community">{{community}}</p>
+            <ion-icon class="dropIcon" slot="end" name="chevron-down-outline" *ngIf="!community"></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-card>
+      <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+      <ion-item>
+        <ion-label class="col1">
+          Height
+        </ion-label>
+        <ion-label (click)="minHeightShow()">
+          <p class="ion-text-wrap" *ngIf="total_minHeight">:&nbsp;&nbsp; {{total_minHeight}}</p>
+          <ion-icon class="dropIcon" slot="end" name="chevron-down-outline" *ngIf="!total_minHeight"></ion-icon>
+        </ion-label>
+      </ion-item>
+        </ion-card>
+        <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
+          <ion-item>
+            <ion-label>Mother Tongue</ion-label>
+            <ion-label (click)="motherShow()">
+              <p class="ion-text-wrap">:&nbsp;&nbsp; {{motherTongueSelect}}</p>
+            </ion-label>
+          </ion-item>
+      </ion-card>
         <ion-card style="border-radius: 20px; padding: 10px 8px;border: 1px solid;">
           <ion-row>
              <ion-col size="8">
@@ -126,4 +208,94 @@
 </ion-card>
   <img [src]="currentImage">
   <!-- <ion-button (click)="cameraClick()">camera</ion-button> -->
+  <ion-card *ngIf="religioncard" class="countrycard">
+    <div class="crossCut" (click)="religioncard =! religioncard">
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+    <ion-radio-group (ionChange)="selectReligion($event)">
+      <ion-item *ngFor="let i of user.religionList">
+        <ion-label>{{i.name}}</ion-label>
+        <ion-radio slot="start" [value]="i"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="professionCard" class="openCard">
+    <ion-searchbar mode="ios" placeholder="Search profesion name Here :)" [(ngModel)]="user.searchTermProfession" (ionChange)="user.filterItemProfession()">
+    </ion-searchbar>
+    <div>
+        <ion-item *ngFor="let p of user.filterTermProfession" (click)="professionClick(p[0].name,p[0].id)">
+          <p>{{p[0].name}}</p>
+        </ion-item>
+    </div>
+  </ion-card>
+  <div class="countrycard" *ngIf='statecondition'>
+    <ion-card style="border-radius: 21px;top: 10%;">
+      <ion-searchbar mode="ios" placeholder="Search state name Here :)" [(ngModel)]="user.searchState"
+        (ionChange)="user.filterState()">
+      </ion-searchbar>
+      <ion-icon name='close' slot="end" color="dark" (click)='statecondition=!statecondition'></ion-icon>
+      <ion-list *ngFor="let s of user.filterTermState">
+        <ion-item (click)="stateSelect(s[0].id,s[0].name)">
+          <ion-label>
+            &nbsp;&nbsp;&nbsp;&nbsp;<p>&nbsp;&nbsp;&nbsp;&nbsp;{{s[0].name}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+
+  <div class="countrycard" *ngIf='citycondition'>
+    <ion-card style="border-radius: 21px;top: 10%;">
+      <div class="crossCut">
+        <ion-icon slot="end" (click)='citycondition =! citycondition' name="close-outline"></ion-icon>
+      </div>
+      <ion-searchbar mode="ios" placeholder="Search City name Here :)" [(ngModel)]="user.searchCity"
+        (ionChange)="user.filterCity()">
+      </ion-searchbar>
+      <ion-list *ngFor="let c of user.filterTermCity">
+        <ion-item (click)="citySelect(c[0].id,c[0].name)">
+          <ion-label>
+            &nbsp;&nbsp;&nbsp;&nbsp; <p>&nbsp;&nbsp;{{c[0].name}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+  <div class="countrycard" *ngIf='communitycondition'>
+    <ion-card style="border-radius: 21px;top: 10%;">
+      <div class="crossCut">
+        <ion-icon slot="end" (click)='communitycondition =! communitycondition' name="close-outline"></ion-icon>
+      </div>
+      <ion-searchbar mode="ios" placeholder="Search Community name Here :)" [(ngModel)]="user.searchCommunity"
+        (ionChange)="user.filterCommunity()">
+      </ion-searchbar>
+      <ion-list *ngFor="let c of user.filterTermCommunity">
+        <ion-item (click)="communitySelect(c[0].id,c[0].name)">
+          <ion-label>
+            &nbsp;&nbsp;&nbsp;&nbsp; <p>&nbsp;&nbsp;{{c[0].name}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+  <ion-card *ngIf="mothercard" class="countrycard">
+    <div class="crossCut" (click)="mothercard =! mothercard">
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+    <ion-radio-group (ionChange)="selectMotherTongue($event)">
+      <ion-item *ngFor="let h of user.motherTongue">
+        <ion-label>{{h.name}}</ion-label>
+        <ion-radio slot="start" [value]="h"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="minheightcard" class="countrycard">
+    <div class="crossCut" (click)="minheightcard =! minheightcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectMinHeight($event)">
+        <ion-item *ngFor="let h of user.heightList">
+          <ion-label>{{h.ft}}-{{h.cm}}</ion-label>
+          <ion-radio slot="start" [value]="h"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
 </ion-content>

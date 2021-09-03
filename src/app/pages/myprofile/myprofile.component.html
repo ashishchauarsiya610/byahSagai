@@ -8,29 +8,17 @@
 </ion-header>
 <ion-content>
   <ion-card>
-    <div class="immg">  
-      <!-- <img src="../../../assets/images/ashishmanjesh.jpg"> -->
-      <img [src]="profile_image">
+    <div class="immg" (click)="takePicture()">  
+      <img *ngIf="imageServer" [src]="profile_image">
+      <img *ngIf="imageShow" src='../../../assets/images/userimage.png'>
       <ion-icon name="camera-outline"></ion-icon>
         <p>{{first_name}} {{last_name}}</p>
     </div>
     <div class="item-slider">
       <ion-slides [options]="slideOpts">
-        <ion-slide>
-          <ion-col class="slideCol">
-            <img src="../../../assets/images/ashishmanjesh.jpg">
-          </ion-col>
-          <ion-col class="slideCol">
-            <img src="../../../assets/images/mummysuman.jpg">
-          </ion-col>
-          <ion-col class="slideCol">
-            <img src="../../../assets/images/ashishmummy.jpg">
-          </ion-col>
-          <ion-col class="slideCol">
-            <img src="../../../assets/images/mummysuman.jpg">
-          </ion-col>
-          <ion-col class="slideCol">
-            <img src="../../../assets/images/ashishmummy.jpg">
+        <ion-slide *ngFor="let img of moreImage1" style="width: 75px;height: 75px;">
+          <ion-col class="slideCol" size="3">
+            <img [src]='img.image'>
           </ion-col>
         </ion-slide>
       </ion-slides>
@@ -52,7 +40,7 @@
             <p>Name</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{first_name}} {{last_name}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{first_name}} {{last_name}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -60,7 +48,7 @@
             <p>Email ID</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{email_id}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{email_id}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -68,7 +56,7 @@
             <p>Contact</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{mobile}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{mobile}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -76,7 +64,7 @@
             <p>DOB</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{dob}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{dob}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -84,7 +72,7 @@
             <p>Height</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{height}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{height}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -92,7 +80,7 @@
             <p>Place of Birth</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{place_of_birth}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{place_of_birth}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -100,9 +88,7 @@
             <p>Contact Address</p>
           </ion-label>
           <ion-label>
-            <p class="details">
-            {{contact_address}}
-            </p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{contact_address}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -110,9 +96,7 @@
             <p>Native Address</p>
           </ion-label>
           <ion-label>
-            <p class="details">
-              {{native_address}}
-            </p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{native_address}}</p>
           </ion-label>
         </ion-item>
       </ion-list>
@@ -134,15 +118,7 @@
             <p>Profession</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{ed.collage_name}}</p>
-          </ion-label>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>
-            <p>Highest Qualification</p>
-          </ion-label>
-          <ion-label>
-            <p class="details">BE</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{ed.profesion_name}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -150,7 +126,7 @@
             <p>Annual Income</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{ed.annual_income}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{ed.annual_income}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -158,7 +134,7 @@
             <p>Employer Name</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{ed.annual_income}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{ed.employer_name}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -166,15 +142,34 @@
             <p>Total Experience</p>
           </ion-label>
           <ion-label>
-             <p>{{ed.total_exp}} years</p>
+             <p class="ion-text-wrap details">:&nbsp;&nbsp; {{ed.total_exp}} years</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
           <ion-label>
-            <p>Working As</p>
+            <p class="ion-text-wrap details">Current working status</p>
           </ion-label>
           <ion-label>
-            <p class="details">{{ed.profesion_name}}</p>
+             <p class="ion-text-wrap details" *ngIf="ed.current_working_status==1">:&nbsp;&nbsp;Yes</p>
+             <p class="ion-text-wrap details" *ngIf="ed.current_working_status==0">:&nbsp;&nbsp;No</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngFor="let e of qualification">
+        <ion-item lines="none">
+          <ion-label>
+            <p>Highest Qualification</p>
+          </ion-label>
+          <ion-label>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp;{{e.degree_name}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>
+            <p>College Name</p>
+          </ion-label>
+          <ion-label>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp;{{e.collage_name}}</p>
           </ion-label>
         </ion-item>
       </ion-list>
@@ -195,7 +190,7 @@
             <p>Person Name</p>
           </ion-label>
           <ion-label>
-            <p>{{data.person_name}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{data.person_name}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -203,15 +198,15 @@
             <p>Contact Number</p>
           </ion-label>
           <ion-label>
-            <p>{{data.mobile}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{data.mobile}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
           <ion-label>
-            <p>Relation</p>
+            <p class="ion-text-wrap details">Relationship with member</p>
           </ion-label>
           <ion-label>
-            <p>{{data.relationship_with_member}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{data.relationship_with_member}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -219,7 +214,7 @@
             <p>Convenient Tme</p>
           </ion-label>
           <ion-label>
-            <p>{{data.convenient_time}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{data.convenient_time}}</p>
           </ion-label>
         </ion-item>
       </ion-list>
@@ -239,7 +234,7 @@
             <p>Religion</p>
           </ion-label>
           <ion-label>
-            <p>{{religion}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{religion}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -247,7 +242,7 @@
             <p>Mother Tongue</p>
           </ion-label>
           <ion-label>
-            <p>{{mother_tongue}}</p>
+            <p class="ion-text-wrap details">:&nbsp;&nbsp; {{mother_tongue}}</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -255,15 +250,15 @@
             <p>Community</p>
           </ion-label>
           <ion-label>
-            <p>Chaurasiya</p>
+            <p class="ion-text-wrap details">Chaurasiya</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
           <ion-label>
-            <p>Sub Community</p>
+            <p class="ion-text-wrap details">Sub Community</p>
           </ion-label>
           <ion-label>
-            <p>Not Specified</p>
+            <p class="ion-text-wrap details">Not Specified</p>
           </ion-label>
         </ion-item>
         <ion-item lines="none">
@@ -271,7 +266,7 @@
             <p>Caste of Bar</p>
           </ion-label>
           <ion-label>
-            <p>
+            <p class="ion-text-wrap details">
              Yes
             </p>
           </ion-label>
@@ -281,7 +276,7 @@
             <p>Gotra / Gothram</p>
           </ion-label>
           <ion-label>
-            <p>
+            <p class="ion-text-wrap details">
              Not Specified
             </p>
           </ion-label>
@@ -306,11 +301,22 @@
       </ion-row>
    <ion-list>
      <ion-item>
-       <p>India, officially the Republic of India, is a country in South Asia. It is the second-most populous country, the seventh-largest country by land area, and the most populous democracy in the world.</p>
+       <p class="ion-text-wrap details">India, officially the Republic of India, is a country in South Asia. It is the second-most populous country, the seventh-largest country by land area, and the most populous democracy in the world.</p>
      </ion-item>
    </ion-list>
     </div>
+
+    <div>
+      <ion-list>
+        <ion-item class="pref" (click)="logout()">
+          <ion-label>Logout</ion-label>
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </div>
   </ion-card>
+
+  
 </ion-content>
 <ion-footer>
   <ion-toolbar color="secondary">

@@ -13,51 +13,52 @@
         <ion-col size="10" (click)="partnerBasic()">
           <p>Partner Basic Info</p>
         </ion-col>
-        <ion-col size="2">
-          <ion-icon *ngIf="editIcon" name="create-outline"></ion-icon>
+        <ion-col size="2"> 
+          <!-- *ngIf="editIcon" -->
+          <ion-icon  name="create-outline">{{working}}</ion-icon>
         </ion-col>
       </ion-row>
       <ion-card>
         <ion-item>
           <ion-label>Age</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="ageGet()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp; {{selectedAge}} years</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Min Height</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="minHeightShow()">
+            <p class="ion-text-wrap" >:&nbsp;&nbsp; {{selectedMinHeight}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Max Height</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="maxHeightShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp; {{selectedMaxHeight}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Mother Tongue</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="motherShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp; {{mothertongue}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Married Status</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="marriedShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp; {{selectedMarried}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Religion</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="religionShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp; {{selectedReligion}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Diet</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="dietShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp; {{selectedDiet}}</p>
           </ion-label>
         </ion-item>
       </ion-card>
@@ -65,30 +66,31 @@
 
     <div>
       <ion-row>
-        <ion-col size="10" (click)="partnerLocation()">
+        <ion-col size="10">
           <p>Partner Location Details</p>
         </ion-col>
-        <ion-col size="2">
-          <ion-icon *ngIf="editIcon" name="create-outline"></ion-icon>
+        <!-- *ngIf="editIcon" -->
+        <ion-col size="2" (click)="partnerLocation()">
+          <ion-icon  name="create-outline"></ion-icon>
         </ion-col>
       </ion-row>
-      <ion-card>
+      <ion-card> 
         <ion-item>
           <ion-label>Country</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="countryShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp;{{countryname}}</p>
           </ion-label>
         </ion-item>
         <ion-item text-wrap>
           <ion-label><h4>State</h4></ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:uttar pradesh,madhya pradesh,Delhi,punjab,Bihar,Himachal Pradesh</p>
+          <ion-label (click)="stateShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp;{{stateName}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>City</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="cityShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp;{{cityId}}</p>
           </ion-label>
         </ion-item>
       </ion-card>
@@ -96,40 +98,204 @@
 
     <div>
       <ion-row>
-        <ion-col size="10" (click)="partnerEducation()">
+        <ion-col size="10">
           <p>Partner Education & Career</p>
         </ion-col>
-        <ion-col size="2">
-          <ion-icon *ngIf="editIcon" name="create-outline"></ion-icon>
+        <!-- *ngIf="editIcon" -->
+        <ion-col size="2" (click)="partnerEducation()">
+          <ion-icon  name="create-outline"></ion-icon>
         </ion-col>
       </ion-row>
       <ion-card>
         <ion-item>
           <ion-label>Education</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:Higher secondary,senior secondary and Graduation (B.tech) CSE</p>
+          <ion-label (click)="educationShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp;{{education}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Profession</ion-label>
-          <ion-label>
-            <p class="ion-text-wrap">:25</p>
+          <ion-label (click)="professionShow()">
+            <p class="ion-text-wrap">:&nbsp;&nbsp;{{profession}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label class="ion-text-wrap">Annual Income</ion-label>
-          <ion-label>
-            <p>:25</p>
+          <ion-label (click)="annualShow()">
+            <p class="ion-text-wrap">:  {{selectedIncome}}</p>
           </ion-label>
         </ion-item>
         <ion-item>
           <ion-label class="ion-text-wrap">Working Status</ion-label>
-          <ion-label>
-            <p>:25</p>
+          <ion-label (click)="workingShow()">
+            <p class="ion-text-wrap">: {{selectedWorkingStatus}}</p>
           </ion-label>
         </ion-item>
       </ion-card>
     </div>
-    <ion-button expand="block" *ngIf="postData">Submit</ion-button>
+    <ion-button expand="block" *ngIf="postData" (click)="postAllData()">Submit</ion-button>
   </div>
+
+ 
+
+
+  <ion-card *ngIf="agecard" class="openCard">
+    <div class="crossCut" (click)="agecard =! agecard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectAge($event)">
+        <ion-item *ngFor="let age of user.ageList">
+          <ion-label>{{age.val}} years</ion-label>
+          <ion-radio slot="start" [value]='age'></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
+
+  <ion-card *ngIf="minheightcard" class="openCard">
+    <div class="crossCut" (click)="minheightcard =! minheightcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectMinHeight($event)">
+        <ion-item *ngFor="let h of user.heightList">
+          <ion-label>{{h.ft}}-{{h.cm}}</ion-label>
+          <ion-radio slot="start" [value]="h"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="maxheightcard" class="openCard">
+    <div class="crossCut" (click)="maxheightcard =! maxheightcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectMaxHeight($event)">
+        <ion-item *ngFor="let h of user.heightList">
+          <ion-label>{{h.ft}}-{{h.cm}}</ion-label>
+          <ion-radio slot="start" [value]="h"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="mothercard" class="openCard">
+    <div class="crossCut" (click)="mothercard =! mothercard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-item *ngFor="let mt of user.motherTongue">
+        <ion-checkbox slot="start" [(ngModel)]="mt.isChecked" (ionChange)="selectMotherTongue($event,mt)"></ion-checkbox>
+        <ion-label>&nbsp;&nbsp;&nbsp;{{mt.id}}-{{mt.name}}</ion-label>       
+      </ion-item>
+  </ion-card>
+  <ion-card *ngIf="marriedcard" class="openCard">
+    <div class="crossCut" (click)="marriedcard =! marriedcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectMarried($event)">
+        <ion-item *ngFor="let ms of user.marriedStatusList">
+          <ion-label>{{ms.name}}</ion-label>
+          <ion-radio slot="start" [value]="ms"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
+
+  <ion-card *ngIf="countrycard" class="openCard">
+    <div class="crossCut"><ion-icon slot="end" (click)='countrycard =! countrycard' name="close-outline"></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search country name Here :)" [(ngModel)]="user.searchCountry" (ionChange)="user.filterCountry()">
+    </ion-searchbar>
+    <ion-radio-group (ionChange)="selectCountry($event)">
+      <ion-item *ngFor="let ms of user.filterTermCountry">
+        <ion-label>{{ms[0].name}}</ion-label>
+        <ion-radio slot="start" [value]="ms[0]"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="statecard" class="openCard">
+    <div class="crossCut" (click)="statecard =! statecard"><ion-icon  name="close-outline" ></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search state name Here :)" [(ngModel)]="user.searchState" (ionChange)="user.filterState()">
+    </ion-searchbar>
+      <!-- <ion-item *ngFor="let mt of user.filterTermState">
+        <ion-checkbox slot="start" [(ngModel)]="mt[0].isChecked" (ionChange)="selectState($event,mt[0])"></ion-checkbox>
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{mt[0].name}}</ion-label>       
+      </ion-item>
+      <ion-button expand="round" (click)="stateClick()">submit</ion-button> -->
+      <ion-radio-group (ionChange)="selectState($event)">
+        <ion-item *ngFor="let ms of user.filterTermState">
+          <ion-label>{{ms[0].name}}</ion-label>
+          <ion-radio slot="start" [value]="ms[0]"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="citycard" class="openCard">
+    <div class="crossCut" (click)="citycard =! citycard"><ion-icon  name="close-outline" ></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search city name Here :)" [(ngModel)]="user.searchCity" (ionChange)="user.filterCity()">
+    </ion-searchbar>
+      <ion-item *ngFor="let ct of user.filterTermCity">
+        <ion-checkbox slot="start" [(ngModel)]="ct[0].isChecked" (ionChange)="selectCity($event,ct[0])"></ion-checkbox>
+        <ion-label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ct[0].name}}</ion-label>       
+      </ion-item>
+  </ion-card>
+  <ion-card *ngIf="educationcard" class="openCard">
+    <div class="crossCut" (click)="educationcard =! educationcard"><ion-icon  name="close-outline" ></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search education name Here :)" [(ngModel)]="user.searchTermdegree" (ionChange)="user.filterItemdegree()">
+    </ion-searchbar>
+      <ion-item *ngFor="let d of user.filterTermDegreeList">
+        <ion-checkbox slot="start" [(ngModel)]="d[0].isChecked" (ionChange)="selectDegree($event,d[0])"></ion-checkbox>
+        <ion-label><p class="ion-text-wrap">{{d[0].name}}</p></ion-label>       
+      </ion-item>
+  </ion-card>
+
+  <ion-card  class="openCard" *ngIf="professioncard">
+    <div class="crossCut" (click)="professioncard =! professioncard"><ion-icon  name="close-outline" ></ion-icon></div>
+    <ion-searchbar mode="ios" placeholder="Search Profession name Here :)" [(ngModel)]="user.searchTermProfession" (ionChange)="user.filterItemProfession()">
+    </ion-searchbar>
+      <ion-item *ngFor="let d of user.filterTermProfession">
+        <ion-checkbox slot="start" [(ngModel)]="d[0].isChecked" (ionChange)="selectProfession($event,d[0])"></ion-checkbox>
+        <ion-label><p class="ion-text-wrap">{{d[0].name}}</p></ion-label>       
+      </ion-item>
+  </ion-card>
+
+  <ion-card *ngIf="workingcard" class="openCard">
+    <div class="crossCut" (click)="workingcard =! workingcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectWorkingStatus($event)">
+        <ion-item *ngFor="let w of user.workingStatusList">
+          <ion-label>{{w.name}}</ion-label>
+          <ion-radio slot="start" [value]="w"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card>
+  <ion-card *ngIf="dietcard" class="openCard">
+    <div class="crossCut" (click)="dietcard =! dietcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectDiet($event)">
+        <ion-item *ngFor="let d of user.dietStatusList">
+          <ion-label>{{d.diet}}</ion-label>
+          <ion-radio slot="start" [value]="d"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card> 
+  <ion-card *ngIf="annualcard" class="openCard">
+    <div class="crossCut" (click)="annualcard =! annualcard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectIncome($event)">
+        <ion-item *ngFor="let i of user.annualIncomeList">
+          <ion-label>{{i.income}}</ion-label>
+          <ion-radio slot="start" [value]="i"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card> 
+  <ion-card *ngIf="religioncard" class="openCard">
+    <div class="crossCut" (click)="religioncard =! religioncard"><ion-icon  name="close-outline" ></ion-icon></div>
+      <ion-radio-group (ionChange)="selectReligion($event)">
+        <ion-item *ngFor="let i of user.religionList">
+          <ion-label>{{i.name}}</ion-label>
+          <ion-radio slot="start" [value]="i"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+  </ion-card> 
 </ion-content>
+<ion-footer *ngIf="professioncard">
+  <ion-toolbar>
+    <ion-button expand="round" (click)="professionClick()">Profession submit</ion-button>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer *ngIf="educationcard">
+  <ion-toolbar>
+   <ion-button expand="round" (click)="degreeClick()">Education submit</ion-button>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer *ngIf="citycard">
+  <ion-toolbar>
+  <ion-button expand="round" (click)="cityClick()">City submit</ion-button>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer *ngIf="mothercard">
+  <ion-toolbar>
+  <ion-button expand="round" (click)="motherClick()">MotherTongue submit</ion-button>
+  </ion-toolbar>
+</ion-footer>
+
+

@@ -25,7 +25,6 @@ export class AuthService {
         }
   }
    firstReg(body:any): Observable<any>{
-     alert("bosdy"+JSON.stringify(body))
     let headers= new HttpHeaders();
     headers.append('Content-Type', 'application/json')
     return this.http.post(this.url+ 'byahsagai/api/User/User', body, {headers:headers}).pipe(tap(res=>{
@@ -100,7 +99,7 @@ export class AuthService {
   var headers = new HttpHeaders();
   headers = headers.append('Content-Type', 'application/json ');
   headers = headers.append('Authorization', 'Bearer' + ' ' + token);
- return this.http.post(this.url+ 'byahsagai/api/User/qualification',body,{headers: headers})
+ return this.http.put(this.url+ 'byahsagai/api/User/qualification',body,{headers: headers})
    }
 
    updateCareerInfo(body){
@@ -111,7 +110,17 @@ export class AuthService {
   headers = headers.append('Authorization', 'Bearer' + ' ' + token);
  return this.http.put(this.url+ 'byahsagai/api/User/changeuserqualification',body,{headers: headers})
    }
+   addMoreImage(body){
+    let token = localStorage.getItem('token');
+    let user_id = localStorage.getItem('user_id');
+  var headers = new HttpHeaders();
+  headers = headers.append('Content-Type', 'application/json ');
+  headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+ return this.http.post(this.url+ 'byahsagai/api/User/addiprofilemage',body,{headers: headers})
+    // 
+   }
   
+  //***************** Master Apis *************************/ 
   getCollegeList(): Observable<any>{
     let token = localStorage.getItem('token');
   var headers = new HttpHeaders();
@@ -168,7 +177,7 @@ export class AuthService {
   return this.http.get(this.url+'byahsagai/api/Master/religion', { headers: headers}).pipe(tap(res=>{
   }))
    }
-  getComunity (): Observable<any>{
+  getComunity(): Observable<any>{
     let token = localStorage.getItem('token');
   var headers = new HttpHeaders();
   headers = headers.append('Content-Type', 'application/json ');
@@ -176,7 +185,7 @@ export class AuthService {
   return this.http.get(this.url+'byahsagai/api/Master/comunity', { headers: headers}).pipe(tap(res=>{
   }))
    }
-   getGotraList (): Observable<any>{
+   getGotraList(): Observable<any>{
     let token = localStorage.getItem('token');
   var headers = new HttpHeaders();
   headers = headers.append('Content-Type', 'application/json ');
@@ -184,7 +193,7 @@ export class AuthService {
   return this.http.get(this.url+'byahsagai/api/Master/gotra', { headers: headers}).pipe(tap(res=>{
   }))
    }
-   getHeightList (): Observable<any>{
+   getHeightList(): Observable<any>{
     let token = localStorage.getItem('token');
   var headers = new HttpHeaders();
   headers = headers.append('Content-Type', 'application/json ');
@@ -192,15 +201,31 @@ export class AuthService {
   return this.http.get(this.url+'byahsagai/api/Master/heightlist', { headers: headers}).pipe(tap(res=>{
   }))
    }
-   getUserPreferences(): Observable<any>{
+   getAgeList(): Observable<any>{
     let token = localStorage.getItem('token');
-    let user_id = localStorage.getItem('user_id');
   var headers = new HttpHeaders();
   headers = headers.append('Content-Type', 'application/json ');
   headers = headers.append('Authorization', 'Bearer' + ' ' + token);
-  return this.http.get(this.url+'byahsagai/api/User/preference/'+ user_id, { headers: headers}).pipe(tap(res=>{
+  return this.http.get(this.url+'byahsagai/api/Master/agelist', { headers: headers}).pipe(tap(res=>{
   }))
    }
+   getReligionList(): Observable<any>{
+    let token = localStorage.getItem('token');
+  var headers = new HttpHeaders();
+  headers = headers.append('Content-Type', 'application/json ');
+  headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+  return this.http.get(this.url+'byahsagai/api/Master/religion', { headers: headers}).pipe(tap(res=>{
+  }))
+   }
+   getComminityList(): Observable<any>{
+    let token = localStorage.getItem('token');
+  var headers = new HttpHeaders();
+  headers = headers.append('Content-Type', 'application/json ');
+  headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+  return this.http.get(this.url+'byahsagai/api/Master/comunity', { headers: headers}).pipe(tap(res=>{
+  }))
+   }
+ 
    getUserImage(): Observable<any>{
     let token = localStorage.getItem('token');
     let user_id = localStorage.getItem('user_id');
@@ -210,5 +235,66 @@ export class AuthService {
   return this.http.get(this.url+'byahsagai/assets/image/', { headers: headers}).pipe(tap(res=>{
   }))
    }
-  //     byahsagai/assets/image
+//*******************preferences Api ******************************/ 
+getUserPreferences(): Observable<any>{
+  let token = localStorage.getItem('token');
+  let user_id = localStorage.getItem('user_id');
+var headers = new HttpHeaders();
+headers = headers.append('Content-Type', 'application/json ');
+headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+return this.http.get(this.url+'byahsagai/api/User/preference/'+ user_id, { headers: headers}).pipe(tap(res=>{
+}))
+ }
+ postPartnerPreferenceInfo(body){
+  let token = localStorage.getItem('token');
+  let user_id = localStorage.getItem('user_id');
+var headers = new HttpHeaders();
+headers = headers.append('Content-Type', 'application/json ');
+headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+return this.http.post(this.url+ 'byahsagai/api/User/preference',body,{headers: headers})
+ }
+   updatePartnerbasicInfo(body){
+    let token = localStorage.getItem('token');
+    let user_id = localStorage.getItem('user_id');
+  var headers = new HttpHeaders();
+  headers = headers.append('Content-Type', 'application/json ');
+  headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+ return this.http.put(this.url+ 'byahsagai/api/User/preferencebasic/',body,{headers: headers})
+   }
+   updatePartnerlocation(body){
+    let token = localStorage.getItem('token');
+    let user_id = localStorage.getItem('user_id');
+  var headers = new HttpHeaders();
+  headers = headers.append('Content-Type', 'application/json ');
+  headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+ return this.http.put(this.url+ 'byahsagai/api/User/preferencelocation/',body,{headers: headers})
+   }
+   updatePartnerEducation(body){
+    let token = localStorage.getItem('token');
+    let user_id = localStorage.getItem('user_id');
+  var headers = new HttpHeaders();
+  headers = headers.append('Content-Type', 'application/json ');
+  headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+ return this.http.put(this.url+ 'byahsagai/api/User/preferenceeducationnwork/',body,{headers: headers})
+   }
+    //************Profile Matching Apis **********/  
+    getMatchedProfile(): Observable<any>{
+      let token = localStorage.getItem('token');
+      let user_id = localStorage.getItem('user_id');
+    var headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json ');
+    headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+    return this.http.get(this.url+'byahsagai/api/User/matchprofile/'+ user_id, { headers: headers}).pipe(tap(res=>{
+    }))
+     }
+     getDailyRecommended(): Observable<any>{
+      let token = localStorage.getItem('token');
+      let user_id = localStorage.getItem('user_id');
+    var headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json ');
+    headers = headers.append('Authorization', 'Bearer' + ' ' + token);
+    return this.http.get(this.url+'byahsagai/api/User/dailyrecommended/'+ user_id, { headers: headers}).pipe(tap(res=>{
+    }))
+     }
+  //      
 }

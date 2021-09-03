@@ -32,8 +32,8 @@ export class UpdateeducationComponent implements OnInit {
     this.degree_id=localStorage.getItem('degree_id');
     this.college_name=localStorage.getItem('college_name');
     this.college_id=localStorage.getItem('college_id');  
-    // this.profession_name=localStorage.getItem('profession_name');
-    // this.profession_id=localStorage.getItem('profession_id');
+    this.profession_name=localStorage.getItem('profession_name');
+    this.profession_id=localStorage.getItem('profession_id');
     }
 
   ngOnInit() {  }
@@ -92,7 +92,7 @@ export class UpdateeducationComponent implements OnInit {
         user_register_id: this.user_id,
         degree_name: this.degree_id,
         collage_name: this.college_id,
-        profession_name: this.profession_id,
+        profesion_name: this.profession_id,
         annual_income: this.annual_income,
         employer_name: data.value.employer_name,
         current_working_status: this.current_working_status,
@@ -108,6 +108,7 @@ export class UpdateeducationComponent implements OnInit {
   }
 
  async degreeSelect(){
+  this.user.getDegree();
   this.user.degreelist=true;
   this.user.collegelist=false;
     const modal= await this.modalCtrl.create({
@@ -120,6 +121,7 @@ export class UpdateeducationComponent implements OnInit {
 
   
  async collegeSelect(){
+  this.user.getCollage();
    this.user.collegelist=true;
    this.user.degreelist=false;
   const modal= await this.modalCtrl.create({
